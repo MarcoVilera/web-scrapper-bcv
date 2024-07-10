@@ -1,0 +1,27 @@
+{
+  "name": "web-scraper-bcv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Marco Vilera",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/node-cron": "^3.0.11",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
+    "node-cron": "^3.0.3",
+    "pm2": "^5.4.2"
+  }
+}
