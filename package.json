@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && copy src\\config.json dist\\config.json",
     "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Marco Vilera",
   "license": "ISC",
-  "description": "",
+  "description": "Get the value of the dollar and the euro from the BCV",
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
     "@types/node-cron": "^3.0.11",
@@ -22,6 +22,6 @@
     "axios": "^1.7.2",
     "cheerio": "^1.0.0-rc.12",
     "node-cron": "^3.0.3",
-    "pm2": "^5.4.2"
+    "node-windows": "^1.0.0-beta.8"
   }
 }
