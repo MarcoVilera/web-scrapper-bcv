@@ -1,5 +1,6 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
+import { get } from 'cheerio/lib/api/traversing';
 import fs from 'fs';
 import cron from 'node-cron';
 
@@ -14,7 +15,9 @@ const getDolarValue = () => {
     }
     const configFile = fs.readFileSync('./config.json', 'utf8')
     const parsedConfig: configData = JSON.parse(configFile)
-
+    if (!fs.existsSync(parsedConfig.output_dir)) {
+        fs.mkdirSync(parsedConfig.output_dir)
+    }
     httpClient.get(url)
         .then((response) => {
             const html = response.data;
@@ -35,4 +38,5 @@ const getDolarValue = () => {
             console.log(error)
         })
 }
+// getDolarValue()
 cron.schedule('0 8,13 * * *', getDolarValue)
