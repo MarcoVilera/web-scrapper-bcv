@@ -1,6 +1,5 @@
 import exec from 'child_process';
 import os from 'os';
-import { win32 } from 'path';
 
 const platform = os.platform();
 
