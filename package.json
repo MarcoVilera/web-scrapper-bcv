@@ -6,7 +6,7 @@
     "build": "tsc && copy src\\config.json dist\\config.json",
     "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node Osdep.js"
+    "postinstall": "node OSdep.js"
   },
   "keywords": [],
   "author": "Marco Vilera",

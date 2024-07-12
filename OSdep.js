@@ -1,5 +1,5 @@
-import exec from 'child_process';
-import os from 'os';
+const { exec } = require('child_process');
+const os = require('os');
 
 const platform = os.platform();
 
