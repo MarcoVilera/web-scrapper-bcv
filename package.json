@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc && copy src\\config.json dist\\config.json",
     "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node Osdep.js"
   },
   "keywords": [],
   "author": "Marco Vilera",
@@ -21,7 +22,10 @@
   "dependencies": {
     "axios": "^1.7.2",
     "cheerio": "^1.0.0-rc.12",
-    "node-cron": "^3.0.3",
-    "node-windows": "^1.0.0-beta.8"
+    "node-cron": "^3.0.3"
+  },
+  "optionalDependencies": {
+    "node-windows": "1.0.0-beta.8",
+    "node-linux": "0.1.12"
   }
 }
