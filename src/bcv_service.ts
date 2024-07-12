@@ -2,7 +2,7 @@ import os from "os"
 
 
 if (os.platform() === 'linux') {
-    const Service = require('node-windows').Service;
+    const Service = require('node-linux').Service;
     const svc = new Service({
         name: 'BCV Service',
         description: 'Get the value of the dollar and the euro from the BCV',
