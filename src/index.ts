@@ -1,19 +1,20 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
-import { get } from 'cheerio/lib/api/traversing';
 import fs from 'fs';
 import cron from 'node-cron';
-
+import path from 'path';
 
 const getDolarValue = () => {
+
     const url: string = 'https://www.bcv.org.ve/'
     const httpClient = axios.create()
 
+    const configPath = path.join(__dirname, 'config.json');
     interface configData {
         output_dir: string
         file_name: string
     }
-    const configFile = fs.readFileSync('./config.json', 'utf8')
+    const configFile = fs.readFileSync(configPath, 'utf8')
     const parsedConfig: configData = JSON.parse(configFile)
     if (!fs.existsSync(parsedConfig.output_dir)) {
         fs.mkdirSync(parsedConfig.output_dir)
@@ -39,4 +40,8 @@ const getDolarValue = () => {
         })
 }
 // getDolarValue()
-cron.schedule('0 8,13 * * *', getDolarValue)
+cron.schedule('0 8,13 * * *', getDolarValue, {
+    timezone: "America/Caracas",
+    runOnInit: true,
+    recoverMissedExecutions: true
+})

@@ -1,12 +1,14 @@
 import os from "os"
+import path from "path"
 
+const scriptPath = path.join(__dirname, 'index.js');
 
 if (os.platform() === 'linux') {
     const Service = require('node-linux').Service;
     const svc = new Service({
         name: 'BCV Service',
         description: 'Get the value of the dollar and the euro from the BCV',
-        script: './index.js',
+        script: scriptPath,
         nodeOptions: [
             '--harmony',
             '--max_old_space_size=4096'
@@ -23,10 +25,11 @@ if (os.platform() === 'win32') {
     const svc = new Service({
         name: 'BCV Service',
         description: 'Get the value of the dollar and the euro from the BCV',
-        script: './index.js',
+        script: scriptPath,
         nodeOptions: [
             '--harmony',
             '--max_old_space_size=4096'
+
         ]
     });
     svc.on('install', function () {
@@ -40,7 +43,7 @@ if (os.platform() === 'darwin') {
     const svc = new Service({
         name: 'BCV Service',
         description: 'Get the value of the dollar and the euro from the BCV',
-        script: './index.js',
+        script: scriptPath,
         nodeOptions: [
             '--harmony',
             '--max_old_space_size=4096'
